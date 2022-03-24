@@ -12,26 +12,41 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_insideHome"
-            app:destination="@id/insideHome" />
+            app:destination="@id/insideHome"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+
     <fragment
         android:id="@+id/insideHome"
         android:name="com.example.navigation.insideHome"
         android:label="fragment_inside_home"
         tools:layout="@layout/fragment_inside_home" >
+        <action
+            android:id="@+id/action_insideHome_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
-            android:name="argumentoPasado"
-            app:argType="string"
-            android:defaultValue="empty" />
+            android:name="registro"
+            app:argType="com.example.navigation.Registro" />
     </fragment>
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.navigation.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.navigation.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+
 </navigation>
